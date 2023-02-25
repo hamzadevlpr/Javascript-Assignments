@@ -180,9 +180,21 @@
     }
 }
 
-p#credit{
-    position: relative;
-    bottom: -550px;
-    text-align: center;
+p.credit {
     font-weight: 600;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+p#output {
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
