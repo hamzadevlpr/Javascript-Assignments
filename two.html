@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript (Assignment # 02)</title>
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container cotainer">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="./assone.html">Assignment # 01</a></li>
+                <li><a href="./asstwo.html">Assignment # 02</a></li>
+                <li><a href="./assthree.html">Assignment # 03</a></li>
+                <li><a href="./assfour.html">Assignment # 04</a></li>
+                <li><a href="./assfive.html">Assignment # 05</a></li>
+                <li><a href="./asssix.html">Assignment # 06</a></li>
+                <li><a href="./assseven.html">Assignment # 07</a></li>
+            </ul>
+            <h1 class="logo">Malik</h1>
+        </div>
+    </nav>
+    <p id="credit">©
+        <script>document.write(new Date().getFullYear());</script> All Rights Reserved. Made with ❤️ by Hamza Malik
+    </p>
+    <script>
+        var pricePerKg = prompt("Enter the price per kilogram of chicken:");
+
+        var quantity = prompt("Enter the quantity of chicken in grams:");
+
+        var quantityInKg = quantity / 1000;
+
+        var totalPrice = quantityInKg * pricePerKg;
+
+        document.write("The total price for " + quantity + " grams of chicken is " + totalPrice + ".");
+    </script>
+</body>
+
+</html>

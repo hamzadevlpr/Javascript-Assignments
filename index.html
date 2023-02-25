@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript (Assignment # 06)</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+
+        @-webkit-keyframes scale-in-hor-center {
+            0% {
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scale-in-hor-center {
+            0% {
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                opacity: 1;
+            }
+
+            100% {
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 30;
+
+        }
+
+        .box {
+            width: 45rem;
+            height: 15rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            border-radius: 20px;
+            -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4.6px);
+            -webkit-backdrop-filter: blur(4.6px);
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        .left {
+            position: absolute;
+            top: -4rem;
+            right: -4rem;
+            height: 10rem;
+            width: 10rem;
+            background: linear-gradient(180deg, #da6f0c 45.12%, #DAD376 145.12%);
+            filter: blur(30px);
+            transform: rotate(-74.86deg);
+            z-index: -10;
+        }
+
+        .right {
+            position: absolute;
+            bottom: -4rem;
+            left: -4rem;
+            height: 10rem;
+            width: 10rem;
+            /* border: 1px solid green; */
+            background: linear-gradient(180deg, #00A886 45.12%, #DAD376 145.12%);
+            filter: blur(30px);
+            transform: rotate(-74.86deg);
+            z-index: -20;
+        }
+
+        .clock,
+        .date {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            z-index: 100;
+            font-size: 4rem;
+            margin: auto;
+            font-weight: 600;
+        }
+
+        .date {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        button {
+            background-color: transparent;
+            color: black;
+            /* border: none; */
+            cursor: pointer;
+            box-shadow: rgba(255, 255, 255, 0.1);
+        }
+
+        p.credit {
+            font-weight: 600;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container cotainer">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="./assone.html">Assignment # 01</a></li>
+                <li><a href="./asstwo.html">Assignment # 02</a></li>
+                <li><a href="./assthree.html">Assignment # 03</a></li>
+                <li><a href="./assfour.html">Assignment # 04</a></li>
+                <li><a href="./assfive.html">Assignment # 05</a></li>
+                <li><a href="./asssix.html">Assignment # 06</a></li>
+                <li><a href="./assseven.html">Assignment # 07</a></li>
+            </ul>
+            <h1 class="logo">Malik</h1>
+        </div>
+    </nav>
+    <p id="credit">©
+        <script>document.write(new Date().getFullYear());</script> All Rights Reserved. Made with ❤️ by Hamza Malik
+    </p>
+    <div class="container">
+        <div class="glass left"></div>
+        <div class="box">
+            <span class="date" id="date"></span>
+            <span class="clock" id="clock"></span>
+        </div>
+        <div class="glass right"></div>
+
+    </div>
+    <p class="credit">©
+        <script>document.write(new Date().getFullYear());</script> All Rights Reserved. Made with ❤️ by Hamza Malik
+    </p>
+    <script>
+
+        const getCurrentTime = () => {
+            let dt = new Date();
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+            const timer = document.querySelector("#clock");
+            let da = dt.getDate().toString().padStart(2, 0);
+            let mon = parseInt(dt.getMonth() + 1).toString().padStart(2, 0);
+            let ye = dt.getFullYear().toString().padStart(4, 0);
+            let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            document.getElementById("date").innerHTML = `${da} / ${mon} / ${ye}, ${daysOfWeek[dt.getUTCDay() + 1]}, ${timezone}`;
+            console.log(dt.getUTCMonth());
+
+            setInterval(() => {
+                let date = new Date();
+                let hrs = date.getHours().toString().padStart(2, 0);
+                let min = date.getMinutes().toString().padStart(2, 0);
+                let sec = date.getSeconds().toString().padStart(2, 0);
+                let ampm;
+                if (ampm <= 12) {
+                    ampm = "AM"
+                } else { ampm = "PM" }
+                document.getElementById("clock").innerHTML = `${Math.abs(hrs - 12)} : ${min} : ${sec}  ${ampm}`;
+            }, 1000);
+        }
+        getCurrentTime();
+
+
+    </script>
+</body>
+
+</html>

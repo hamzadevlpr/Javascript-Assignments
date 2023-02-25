@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Roboto Mono", monospace;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .calculator {
+            width: 350px;
+            background-color: #353b48;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 5, 24, 0.4);
+        }
+
+        .display {
+            width: 100%;
+            padding-top: 30px;
+        }
+
+        .display input {
+            width: 100%;
+            padding: 25px 10px;
+            text-align: right;
+            border: none;
+            background-color: transparent;
+            color: #7f8c8d;
+            font-size: 35px;
+        }
+
+        .display input::placeholder {
+            /* color: #fff; */
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+            margin-top: 40px;
+        }
+
+        .buttons input[type="button"] {
+            font-size: 20px;
+            padding: 17px;
+            border: none;
+            background-color: transparent;
+            color: #ecf0f1;
+            cursor: pointer;
+        }
+
+
+        .buttons input[type="button"]:hover {
+            box-shadow: 0 8px 25px #424855;
+        }
+
+
+        input[type="button"][value="0"] {
+            grid-column: span 1;
+        }
+
+        input[type="button"][value="="] {
+            background-color: aliceblue;
+            color: #424855;
+        }
+
+        input[type="button"].opt {
+            background-color: #f1c40f;
+            color: #424855;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container cotainer">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="./assone.html">Assignment # 01</a></li>
+                <li><a href="./asstwo.html">Assignment # 02</a></li>
+                <li><a href="./assthree.html">Assignment # 03</a></li>
+                <li><a href="./assfour.html">Assignment # 04</a></li>
+                <li><a href="./assfive.html">Assignment # 05</a></li>
+                <li><a href="./asssix.html">Assignment # 06</a></li>
+                <li><a href="./assseven.html">Assignment # 07</a></li>
+            </ul>
+            <h1 class="logo">Malik</h1>
+        </div>
+    </nav>
+    <p id="credit">©
+        <script>document.write(new Date().getFullYear());</script> All Rights Reserved. Made with ❤️ by Hamza Malik
+    </p>
+    <div class="calculator">
+        <form class="calculatorform" name="calculatorform">
+            <div class="display">
+                <input type="text" placeholder="0" id="input" disabled name="screen" />
+            </div>
+            <div class="buttons">
+
+                <input type="button" value="AC" onclick="document.getElementById('input').value = ''"
+                    class="clear opt" />
+
+                <input type="button" value="C" class="erase opt" onclick="dlt()" />
+                <input type="button" value="(" class="input-button opt" onclick="valueButton(this);" />
+                <input type="button" value=")" class="input-button opt" onclick="valueButton(this);" />
+
+                <input type="button" value="7" id="seven" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="8" id="eight" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="9" id="nine" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="/" class="input-button opt" onclick="valueButton(this);" />
+
+                <input type="button" value="6" id="six" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="5" id="five" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="4" id="four" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="*" class="input-button opt" id="mult" onclick="valueButton(this);" />
+
+                <input type="button" value="1" id="one" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="2" id="two" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="3" id="three" class="input-button" onclick="valueButton(this);" />
+
+                <input type="button" value="-" class="input-button opt" id="minus" onclick="valueButton(this);" />
+                <input type="button" value="0" id="zero" class="input-button" onclick="valueButton(this);" />
+                <input type="button" value="." class="input-button" id="erase" onclick="valueButton(this);" />
+                <input type="button" value="=" class="input-button" id="equal" onclick="calculate()" />
+                <input type="button" value="+" class="input-button opt" id="plus" onclick="valueButton(this);" />
+            </div>
+        </form>
+        <p>© 2023. All Rights Reserved. Made with ❤️ by Hamza Malik</p>
+    </div>
+    <script>
+        function valueButton(e) {
+            calculatorform.screen.value += e.value;
+        }
+        function calculate() {
+            calculatorform.screen.value = eval(calculatorform.screen.value);
+        }
+        function dlt() {
+            let reem = document.getElementById("input").value;
+
+
+        }
+    </script>
+</body>
+
+</html>
