@@ -155,9 +155,6 @@
         <div class="glass right"></div>
 
     </div>
-    <p class="credit">©
-        <script>document.write(new Date().getFullYear());</script> All Rights Reserved. Made with ❤️ by Hamza Malik
-    </p>
     <script>
 
         const getCurrentTime = () => {
@@ -169,7 +166,7 @@
             let mon = parseInt(dt.getMonth() + 1).toString().padStart(2, 0);
             let ye = dt.getFullYear().toString().padStart(4, 0);
             let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            document.getElementById("date").innerHTML = `${da} / ${mon} / ${ye}, ${daysOfWeek[dt.getUTCDay() + 1]}, ${timezone}`;
+            document.getElementById("date").innerHTML = `${da} / ${mon} / ${ye}, ${daysOfWeek[dt.getUTCDay + 1]}, ${timezone}`;
             console.log(dt.getUTCMonth());
 
             setInterval(() => {

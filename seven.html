@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript (Assignment # 07)</title>
+    <script src="https://kit.fontawesome.com/8b3b09a285.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -15,12 +16,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <style>
         #box {
             width: 500px;
             background: linear-gradient(to bottom, #228be6 5%, #3bc9db 95%);
             padding-top: 80px !important;
             position: relative;
+            border-radius: 10px;
+            top: 20px;
         }
 
         ::placeholder {
@@ -32,7 +37,7 @@
         input {
             width: 100%;
             padding: 10px 15px;
-            margin-bottom: 20px;
+            margin-top: 20px;
             border: none;
             border-radius: 10px;
             font-size: 1.2rem;
@@ -67,10 +72,10 @@
             text-align: center;
             font-weight: 600;
             font-family: sans-serif;
+            margin-top: 10px;
         }
 
         .btn {
-            --color: #228be6;
             padding: 0.8em 164px;
             background-color: transparent;
             border-radius: 10px;
@@ -82,9 +87,10 @@
             font-size: 17px;
             font-family: inherit;
             text-transform: uppercase;
-            color: var(--color);
+            color: #228be6;
             z-index: 1;
             border: 2px solid #ecf0f1;
+            color: rgb(10, 25, 30);
         }
 
         .btn::before,
@@ -97,7 +103,7 @@
             position: absolute;
             border-radius: 50%;
             z-index: -1;
-            background-color: var(--color);
+            background-color: #228be6;
             transition: 1s ease;
         }
 
@@ -124,6 +130,49 @@
         .btn:active {
             filter: brightness(.8);
         }
+
+        input[type="password"] {
+            /* width: 90%; */
+            position: relative;
+        }
+
+        .fa-eye,
+        .fa-eye-slash,
+        .fa-circle-exclamation {
+            position: fixed;
+            cursor: pointer;
+        }
+
+        .fa-eye,
+        .fa-eye-slash {
+            position: absolute;
+            right: 65px;
+            top: 265px;
+        }
+
+        .fa-circle-exclamation {
+            right: 45px;
+            top: 165px;
+            z-index: 100;
+        }
+
+        input:focus {
+            border: 2px solid #fff;
+        }
+
+        .error {
+            font-family: sans-serif;
+            font-size: 0.7rem;
+            color: red;
+            letter-spacing: 0.1px;
+            font-weight: 800;
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+
+        .fa-circle-exclamation {
+            color: red;
+        }
     </style>
 </head>
 
@@ -140,7 +189,8 @@
                 <li><a href="./one.html" title="Chicken Calculator Easy">Assignment 01</a></li>
                 <li><a href="./two.html" title="Chicken Calculator Hard">Assignment 02</a></li>
                 <li><a href="./three.html" title="Calculator">Assignment 03</a></li>
-                <li><a href="./four.html" title="Conversion of Numbers to Alphabet using ASCII Code">Assignment 04</a></li>
+                <li><a href="./four.html" title="Conversion of Numbers to Alphabet using ASCII Code">Assignment 04</a>
+                </li>
                 <li><a href="./five.html" title="CRUD Operations in Array">Assignment 05</a></li>
                 <li><a href="./index.html" title="Stoppwatch">Assignment 06</a></li>
                 <li><a href="./seven.html" title="Log-In or Sign-up Page using DOM">Assignment 07</a></li>
@@ -152,46 +202,8 @@
         <script>document.write(new Date().getFullYear());</script> All Rights Reserved. Made with ❤️ by Hamza Malik
     </p>
     <div class="container mx-auto m-5 p-5" id="box"></div>
-    <script>
-        //Sign up Screen Elements
-        // create Elements
-        let main_div = document.getElementById("box");
-        let inp_username = document.createElement("input");
-        inp_username.setAttribute("placeholder", "Username")
-        let inp_email = document.createElement("input");
-        inp_email.setAttribute("placeholder", "Email")
-        let inp_pass = document.createElement("input");
-        inp_pass.setAttribute("placeholder", "Password");
-        inp_pass.setAttribute("type", "password");
-        let user_cirlce = document.createElement("div");
-        let user_agrement = document.createElement("p");
-        user_agrement.innerHTML = "By clicking Below, I have Read Terms & Conditions";
-        let btnn = document.createElement("button");
-        btnn.innerHTML = "Sign Up"
-
-
-        // classList
-        inp_username.classList.add("username");
-        inp_email.classList.add("email");
-        user_cirlce.classList.add("user_cirlce");
-        user_agrement.classList.add("user_agrement");
-        btnn.classList.add("btn");
-
-
-        // appendchild
-        main_div.appendChild(user_cirlce);
-        main_div.appendChild(inp_username);
-        main_div.appendChild(inp_email);
-        main_div.appendChild(inp_pass);
-        main_div.appendChild(user_agrement);
-        main_div.appendChild(btnn);
-
-        btnn.addEventListener("click", function () {
-            if (inp_username == "" && inp_email == "" && inp_pass == "") {
-                console.log("Clicked")
-            } else { }
-        })
-    </script>
+    
+    <script src="seven.js"></script>
 </body>
 
 </html>
